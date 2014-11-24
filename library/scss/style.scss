@@ -1,0 +1,420 @@
+/******************************************************************
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here, you'll see we are calling in
+the separate media queries. The base mobile goes outside any query
+and is called at the beginning, after that we call the rest
+of the styles inside media queries.
+******************************************************************/
+
+//
+// IMPORTING STYLES
+//
+
+// import normalize
+@import "../../bower_components/foundation/scss/normalize";
+
+// import mixins
+@import "mixins";
+
+// import foundation overrides
+@import "settings";
+
+// foundation.scss
+@import "../../bower_components/foundation/scss/foundation";
+
+// joints.scss
+@import "joints";
+
+
+/*
+SMALL (BASE) SIZE
+These are the small/base styles. It's what people see on their phones. If
+you set a great foundation, you won't need to add too many styles in
+the other stylesheets. Remember, keep it light: Speed is Important.
+*/
+
+// styles in small.scss
+@import "small";
+
+
+/*
+MEDIUM
+*/
+@media only screen and (min-width: 40.063em) {
+
+	// styles in medium.scss
+	@import "medium";
+
+} // end of media query
+
+/*
+LARGE
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*/
+@media only screen and (min-width: 64.063em) {
+
+	// styles in large.scss
+	@import "large";
+
+} // end of media query
+
+/*
+XLARGE
+*/
+@media only screen and (min-width: 90.063em) {
+
+	// styles in xlarge.scss
+	@import "xlarge";
+
+} // end of media query
+
+/*
+XXLARGE
+*/
+@media only screen and (min-width: 120.063em) {
+
+	// styles in xxlarge.scss
+	@import "xxlarge";
+
+} // end of media query
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	// styles in 2x.scss
+	@import "2x";
+
+} // end of media query
+
+/*
+iPHONE 5 MEDIA QUERY
+Want to get fancy for no good reason? Knock yourself out.
+*/
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  
+  // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+  
+}
+
+/*
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*/
+@media print {
+	@import "print";
+}
+
+/* 
+ * SASS VARIABLES LL 
+ */
+
+$bgSide: #f7f8d9;
+
+$ffMenu: 'Raleway';
+$ffMain: 'Oxygen';
+
+$tcMain: #666;
+$border: #f3f3f3;
+
+$linksColor: #666;
+$bgActive: #fff;
+
+$bgGallery: #f2f2f2;
+
+
+.page {
+    font-family: $ffMain;
+    color: $tcMain;
+}
+
+
+ul#menu-carina-1 {
+    list-style-type: none;
+    margin-left: 0px;
+    margin-bottom: 25px;
+}
+
+#menu-carina-1 li {
+    padding: 10px;
+    font-size: 1em;
+    & a {
+    color: $linksColor;
+    }
+    & a:hover {
+    padding: 3px 10px;
+    }
+}
+
+li.current-menu-item a {
+    background: $bgActive;
+    padding: 3px 10px;
+}
+
+ul.off-canvas-list .current-menu-item a {
+    color: #666; 
+}
+
+.names {
+    font-size: 1em;
+    text-align: center;
+    font-family: $ffMenu;
+    color: $tcMain;
+}
+
+.contact {
+    font-size: 1em;
+    padding: 1em;
+    text-align: center;
+    font-family: $ffMenu;
+    color: $tcMain;
+    background: #fff;
+}
+
+
+h1.names {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-top: 25px;
+    & a {
+        color: $linksColor;
+    }
+    & a:hover {
+    padding: 3px 10px;
+    }
+}
+
+h3.names {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: $tcMain;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+h3.statement {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: $tcMain;
+    font-family: $ffMain;
+    margin-top: 15px;
+}
+
+
+
+.large-4 {
+    position: relative;
+    
+}
+
+.large-4 img {
+    margin-bottom: 20px;
+    padding: 0em 0em;
+    background: $bgGallery;
+    position: relative;
+    width: 100%;
+    max-height: 35%;
+    min-height: 35%; 
+    height: 300px;
+}
+
+
+.home .footer { 
+    bottom: 0;
+    left:0;
+    opacity: 0;
+    position: absolute;
+}
+
+
+
+#gallery-title {
+    font-family: $ffMain;
+    font-size: 1.2em;
+    color: $tcMain;
+    margin: 15px 0px 20px 0px;
+    padding: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 0px solid $tcMain;
+    border-top: 0px solid $tcMain;
+}
+
+
+
+a h6 {
+    color: white;
+}
+
+
+h3 span {
+    color: $tcMain;
+    font-size: .8em;
+    font-family: $ffMain;
+    text-transform: none;
+}
+
+
+.tl {
+    background: $bgSide;
+    min-height: 100vh;
+    opacity: 1;
+    z-index: 10;
+    overflow: visible;
+    & span {
+        display: block;
+        width: 100%;
+        position: absolute;
+        left:0;
+        bottom: 1%;
+        font-family: $ffMain;
+        color: $tcMain;
+        text-align: center;
+    }
+}
+
+    .tl.large-3.columns.row {
+        position: fixed;
+        left: 0;
+        top: 0px;
+    }
+
+
+.fi-social-pinterest, .fi-mail {
+    font-size: 1.5em;
+    color: #fff;
+    padding-left: 1em;
+    text-align: center;
+
+}
+
+
+
+
+
+.share { 
+    margin-bottom: 1em;
+    border: 1px solid $bgGallery;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    font-family: Raleway;
+    font-size: .9em;
+    color: $tcMain;
+}
+
+.fi-info {
+    position: absolute;
+    left: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.home #container {
+    height: 100vh;
+    background-image: url('http://linda-lockwood.com/wp-content/uploads/2014/10/Night-City.jpg');
+    background-size: 75% 100%;
+    background-position: right;
+    margin: 0;
+    padding: 0;
+}
+
+
+.home #container::before {
+    content: "Night City (watercolour), Linda Lockwood";
+    padding: 5px;
+    position: absolute;
+    background: white;
+    bottom: 10px;
+    right: 10px;
+    
+}
+
+
+.off-canvas-wrap {
+    overflow: visible! important;
+}
+
+
+img.avatar.avatar-200.wp-user-avatar.wp-user-avatar-200.alignnone.photo {
+    width: 90%;
+    margin: 2% 5%;
+    line-height: 200px;
+}
+
+img.avatar.avatar-195.wp-user-avatar.wp-user-avatar-195.alignnone.photo {
+    width: 50%;
+    margin: 25% 25% 5%;
+}
+
+
+
+.bio {
+    text-align: center;
+    line-height: 1.75em;
+    font-family: $ffMain;
+    color: $tcMain;
+    padding-top: 25px;
+    margin-top: 30px;
+    background: #fff;
+}
+
+.biography-text {
+    font-size: 1.1em;
+    width: 100%;
+    padding: 1em;
+    line-height: 1.75em;
+    color: $tcMain;
+    background: $bgSide;
+    border-bottom: 0px solid $tcMain;
+    border-top: 0px solid $tcMain;
+    margin: 25px auto;
+}
+
+@media only screen 
+and (max-width : 641px) {
+    .tl {
+        visibility: hidden;
+    }
+    .home .tl.large-3.columns.row {
+        visibility: visible;  
+    }
+    #gallery-title {
+        margin-top: 60px;
+    }
+    .bio {
+        margin-bottom: 5em;
+    }
+    .biography-text {
+        font-size: 1em;
+        padding: 10px 0px;
+    }
+    img.avatar.avatar-200.wp-user-avatar.wp-user-avatar-200.alignnone.photo {
+    width: 60%;
+    margin: 2% 20%;
+}.fi-social-pinterest, .fi-mail {
+    padding-left: 0em;
+    position: absolute;
+    bottom: 60px;
+}
+    .fi-social-pinterest {
+    left: 40%;    
+}
+
+.fi-mail {
+    right: 40%;
+}
+}
+
