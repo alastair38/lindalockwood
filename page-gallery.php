@@ -4,21 +4,22 @@ Template Name: Categorised Gallery Pages
 */
 ?>
 
-<?php get_header();  
+<?php get_header();
 
 $page_title = $wp_query->post->post_title;
+$page_id = $wp_query->post->id;
 $the_content = $wp_query->post->post_content;
 $page_slug = basename(get_permalink()); //$page_slug will match category slug for use in loop
-$sub_slug = $page_slug . '-landscape'; 
+$sub_slug = $page_slug . '-landscape';
 $theCatId = get_term_by( 'slug', $page_slug, 'category' );
 $theCatId = $theCatId->term_id;
 
 ?>
-			
+
  <div class="large-12 columns" id="content">
-         
+
      <?php get_template_part( 'partials/nav', 'side' ); ?>
-         
+
 <div class="large-9 medium-8 small-12 columns" >
      <div class="columns" >
      <div class="gallery">
@@ -36,22 +37,16 @@ $theCatId = $theCatId->term_id;
 
         </div>
    </div>
-    
+
 <div class="large-12 columns">
 <h3 class="gallery-title">Pricing</h3>
 
-<?php if(is_page(18)){
-echo "<p> Price on application. </p>"; 
-}
-else {
-echo "<p>Works on paper measuring from 18 x 12cm to 40 x 30cm range in price from £200 ­to £450 including mount and frame (+ P&P). Larger works on paper and works on canvas – prices on application.</p>";
-}?>
+<?php echo '<p>' . $the_content . '</p>';?>
 </div>
-    
-  
+
+
 
 </div>
 
-               </div>    
-                <?php get_footer(); ?>                         
-                                           
+               </div>
+                <?php get_footer(); ?>
